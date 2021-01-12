@@ -3,14 +3,16 @@ using Blog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Blog.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210112095027_NewBlogPost")]
+    partial class NewBlogPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,15 +111,6 @@ namespace Blog.Migrations
                     b.HasIndex("BlogPostId");
 
                     b.ToTable("Comments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "Giannis E.",
-                            BlogPostId = 3,
-                            CommentMessage = "Excellent suggestion of books. I have a question though, on the third book there is a page that says it's better to wait and see how the code reacts to changes, is this a good suggestion?"
-                        });
                 });
 
             modelBuilder.Entity("Blog.Models.Comment", b =>

@@ -1,6 +1,39 @@
 ﻿@model IEnumerable<BlogPost>
-@{ 
+
+@{
     ViewBag.Title = "Start page";
 }
 
-Hello world!
+<div class="row">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+        @{
+            int firstTime = 0;
+
+        }
+        @foreach (var blog in Model)
+        {
+            <div id="@blog.Id" class="row bg-white @(firstTime == 0 ? "" : "border-top") p-3" @{firstTime = 1;}>
+                <div class="col-12 p-2">
+                    <span class="text-primary small">@blog.Author</span> <i class=" ml-1 far  fa-star fa-xs text-muted"></i>
+                </div>
+
+                <div class="col-12">
+                    <h2 class="text-capitalize mb-0">
+                        <a style="color:inherit; text-decoration:inherit;" asp-action="showpost" asp-controller="home" asp-route-id="@blog.Id">
+                            @blog.Title
+                        </a>
+                    </h2>
+                    <h3 class="text-muted"><small>@blog.SubTitle</small></h3>
+                    <p class="mt-4">@blog.Introduction</p>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-light"><i class="far fa-heart"></i> <span>@blog.Likes</span></button>
+                    <button class="btn btn-light"><i class="far fa-comment"></i> <span>@blog.Comments.Count()</span></button>
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

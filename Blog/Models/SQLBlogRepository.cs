@@ -7,8 +7,12 @@ namespace Blog.Models
 {
     public class SQLBlogRepository : IBlogRepository
     {
+        private readonly AppDbContext appDbContext;
 
-
+        public SQLBlogRepository(AppDbContext appDbContext)
+        {
+            this.appDbContext = appDbContext;
+        }
         public BlogPost Add(BlogPost blogPost)
         {
             throw new NotImplementedException();
@@ -31,12 +35,12 @@ namespace Blog.Models
 
         public IEnumerable<BlogPost> GetAllBlogPosts()
         {
-            throw new NotImplementedException();
+            return appDbContext.BlogPosts;
         }
 
-        public BlogPost GetBlogPost(int id)
+        public BlogPost GetBlogPost(int Id)
         {
-            throw new NotImplementedException();
+            return appDbContext.BlogPosts.Find(Id);
         }
 
         public Comment GetComment(int id)
@@ -46,7 +50,7 @@ namespace Blog.Models
 
         public IEnumerable<Comment> GetCommentsOfBlogPost(BlogPost blogPost)
         {
-            throw new NotImplementedException();
+            return appDbContext.Comments.Where(comment => comment.BlogPostId == blogPost.Id);
         }
 
         public BlogPost Update(BlogPost blogPost)

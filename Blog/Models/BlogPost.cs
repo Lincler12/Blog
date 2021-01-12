@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace Blog.Models
 {
     public class BlogPost
     {
+
         public int Id { get; set; }
         [Required]
         public string Author { get; set; }
@@ -22,8 +24,7 @@ namespace Blog.Models
         [MinLength(2000, ErrorMessage = "Not enough content")]
         [Required]
         public string Content { get; set; }
-
-        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
         public int Likes { get; set; } = 0;
 
     }
