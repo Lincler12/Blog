@@ -20,30 +20,38 @@
                 <div class="row pl-2">
                     <div class="col-12 col-sm-12 col-md-11 offset-md-1 col-xl-9 ">
                         <div class="tab-pane fade show active h-100" id="article" role="tabpanel" aria-labelledby="article-tab">
-                            <textarea id="mytextarea" class=" form-control h-100" rows="20"></textarea>
+                            <textarea  asp-for="Content" id="mytextarea" class=" form-control h-100" rows="20" form="create-post-form"></textarea>
+                            <span asp-validation-for="Content" class="text-danger"></span>
                         </div>
                         <div class="tab-pane fade display-none" id="details" role="tabpanel" aria-labelledby="details-tab">
-                            <form>
+                            <form asp-controller="home" asp-action="create" method="post" id="create-post-form">
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Author</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    <label asp-for="Author"></label>
+                                    <input asp-for="Author"   type="text" class="form-control"  placeholder="">
+                                    <span asp-validation-for="Author" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Post Title</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    <label asp-for="Title">Post Title</label>
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="">
+                                    <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Post Subtitle</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    <label asp-for="SubTitle">Post Subtitle</label>
+                                    <input asp-for="SubTitle" type="text" class="form-control" placeholder="">
+                                    <span asp-validation-for="SubTitle" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Post Introduction</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <label asp-for="Introduction" >Post Introduction</label>
+                                    <textarea asp-for="Introduction" class="form-control" id="form-introduction"rows="3" placeholder="It is recommended to add an image"></textarea>
+                                    <span asp-validation-for="Introduction" class="text-danger"></span>
                                 </div>
                             </form>
                         </div>
-                        <div class="tab-pane fade display-none" id="preview" role="tabpanel" aria-labelledby="preview-tab">..aefsa.</div>
+                        <div class="tab-pane fade display-none" id="preview" role="tabpanel" aria-labelledby="preview-tab">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <button class="btn btn-success" type="submit" form="create-post-form">Submit article</button>
+                        </div>
                     </div>
                 </div>
             </div>

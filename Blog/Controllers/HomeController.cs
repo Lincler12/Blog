@@ -26,6 +26,17 @@ namespace Blog.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(BlogPost blogPost)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                BlogPost newBlogPost = blogRepository.Add(blogPost);
+                return RedirectToAction("ShowPost", new { id = blogPost.Id });
+            }
+            return View();
+        }
 
         public IActionResult ShowPost(int? id)
         {

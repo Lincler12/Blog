@@ -15,7 +15,9 @@ namespace Blog.Models
         }
         public BlogPost Add(BlogPost blogPost)
         {
-            throw new NotImplementedException();
+            appDbContext.BlogPosts.Add(blogPost);
+            appDbContext.SaveChanges();
+            return blogPost;
         }
 
         public Comment AddComment(Comment comment)

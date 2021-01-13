@@ -16,7 +16,7 @@
             <div class="col-12">
                 <h2 class="text-capitalize mb-0">@Model.Title</h2>
                 <h3 class="text-muted"><small>@Model.SubTitle</small></h3>
-                <p class="mt-4">@Model.Introduction @Model.Content</p>
+                <p class="mt-4">@Html.Raw(Model.Introduction) @Html.Raw(Model.Content)</p>
             </div>
 
             <div class="col-12">

@@ -10,7 +10,15 @@
     <script src="https://cdn.tiny.cloud/1/0xf12t14xiscwdam060u44u4lxxu9s6iveziefqsrlkkv7vc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#mytextarea'
+            selector: '#mytextarea, textarea#form-introduction',
+            plugins: 'image paste code table link imagetools advcode media powerpaste codesample',
+            //menubar: 'insert',
+            //toolbar: 'image',
+            //image_list: [
+            //    { title: 'My image 1', value: 'https://www.example.com/my1.gif' },
+            //    { title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif' }
+            //]
+
         });
     </script>
     <script src="~/lib/jquery/jquery.js"></script>
