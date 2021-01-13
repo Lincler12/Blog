@@ -18,6 +18,6 @@ namespace Blog.Models
         Comment DeleteComment(int id);
         Comment UpdateComment(Comment comment);
 
-        IEnumerable<Comment> GetCommentsOfBlogPost(BlogPost blogPost);
+        ICollection<Comment> GetCommentsOfBlogPost(BlogPost blogPost);
     }
 }

@@ -10,7 +10,9 @@ namespace Blog.Models
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BlogPost>().HasData(
+            
+            var blogPosts = new BlogPost[]
+            {
                 new BlogPost
                 {
                     Id = 1,
@@ -90,17 +92,22 @@ You can learn about how child development takes such leaps during different ages
 If you are looking for a comprehensive book on user research and designing for kids, this is the must-read. It is exactly what you’re looking for.
 ",
                 }
-            );
+            };
+            modelBuilder.Entity<BlogPost>().HasData(blogPosts);
 
-            modelBuilder.Entity<Comment>().HasData(
-                new Comment
+
+            var comments = new Comment[]
+            {
+                 new Comment
                 {
                     Id = 1,
                     Author = "Giannis E.",
-                    BlogPostId = 3,
+                    BlogPostId = 2,
                     CommentMessage = "Excellent suggestion of books. I have a question though, on the third book there is a page that says it's better to wait and see how the code reacts to changes, is this a good suggestion?"
                 }
-               );
+            };
+
+            modelBuilder.Entity<Comment>().HasData( comments);
          
         }
     }

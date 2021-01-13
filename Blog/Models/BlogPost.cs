@@ -10,6 +10,10 @@ namespace Blog.Models
     public class BlogPost
     {
 
+        public BlogPost()
+        {
+            Comments = new List<Comment>();
+        }
         public int Id { get; set; }
         [Required]
         public string Author { get; set; }
@@ -24,7 +28,7 @@ namespace Blog.Models
         [MinLength(2000, ErrorMessage = "Not enough content")]
         [Required]
         public string Content { get; set; }
-        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+        public ICollection<Comment> Comments { get; set; }
         public int Likes { get; set; } = 0;
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,7 +38,8 @@ namespace Blog.Models
 
         public IEnumerable<BlogPost> GetAllBlogPosts()
         {
-            return appDbContext.BlogPosts;
+
+            return appDbContext.BlogPosts.Include("Comments");
         }
 
         public BlogPost GetBlogPost(int Id)
@@ -50,9 +52,9 @@ namespace Blog.Models
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Comment> GetCommentsOfBlogPost(BlogPost blogPost)
+        public ICollection<Comment> GetCommentsOfBlogPost(BlogPost blogPost)
         {
-            return appDbContext.Comments.Where(comment => comment.BlogPostId == blogPost.Id);
+            return appDbContext.Comments.Where(comment => comment.BlogPostId == blogPost.Id).ToList();
         }
 
         public BlogPost Update(BlogPost blogPost)

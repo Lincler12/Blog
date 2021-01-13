@@ -1,5 +1,4 @@
 ﻿@model BlogPost
-@inject IBlogRepository blogRepository;
 @{
     ViewBag.Title = Model.Title;
 }
@@ -16,18 +15,51 @@
             </div>
 
             <div class="col-12">
-                <h2 class="text-capitalize mb-0">@Model.Title</h2>
-                <h3 class="text-muted"><small>@Model.SubTitle</small></h3>
-                <p class="mt-4">@Html.Raw(Model.Introduction) @Html.Raw(Model.Content)</p>
+                <h1 class="text-capitalize mb-0">@Model.Title</h1>
+                <h2 class="text-muted"><small>@Model.SubTitle</small></h2>
+                <p class="mt-4" style="font-size:18px">@Html.Raw(Model.Introduction) @Html.Raw(Model.Content)</p>
             </div>
 
             <div class="col-12">
                 <button class="btn btn-light"><i class="far fa-heart"></i> <span>@Model.Likes</span></button>
-                <button class="btn btn-light"><i class="far fa-comment"></i> <span>@blogRepository.GetCommentsOfBlogPost(Model).Count()</span></button>
+                <button id="show-post-comment-button" class="btn btn-light"><i class="far fa-comment"></i> <span>@Model.Comments.Count</span></button>
             </div>
 
+            <div class="col-12 mt-5 display-none" id="comments-section" >
+
+                @if (Model.Comments.Count == 0)
+                {
+
+                    <div class="row">
+                        <div class="col-12 text-center"><span style="font-size:24px">No comments!</span></div>
+                    </div>
+                }
+                else
+                {
+                    <h3 class="text-muted mb-3">Comments:</h3>
+                    @foreach (var m in Model.Comments)
+                    {
+
+                        <div class="border-bottom shadow border-light mb-2">
+                            <div class="p-3 p-md-4 bg-white">
+                                <span class="text-primary small border-bottom ">@m.Author</span>
+                                <p class="mt-2 pl-3 pr-3 pt-2 border-left"  style="font-size:14px">@m.CommentMessage</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
         </div>
 
 
     </div>
 </div>
+
+<script>
+    const showPostButton = document.getElementById("show-post-comment-button");
+    const commentsSection = document.getElementById("comments-section");
+    showPostButton.addEventListener("click", () => {
+        commentsSection.classList.toggle("display-none");
+    })
+</script>

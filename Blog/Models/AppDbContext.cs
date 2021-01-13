@@ -10,7 +10,7 @@ namespace Blog.Models
     {
         public AppDbContext(DbContextOptions<AppDbContext> appDbContextOptions) : base(appDbContextOptions)
         {
-
+            
         }
 
         public DbSet<BlogPost> BlogPosts { get; set; }

@@ -12,8 +12,8 @@ namespace Blog.Models
         public string Author { get; set; } = "Anonymous";
         [Required]
         public string CommentMessage { get; set; }
-        [Required]
-        public virtual int BlogPostId { get; set; }
-        public virtual BlogPost BlogPost { get; set; }
+        
+        public int BlogPostId { get; set; }
+        public BlogPost BlogPost { get; set; }
     }
 }

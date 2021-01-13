@@ -17,8 +17,7 @@ namespace Blog.Controllers
         }
         public IActionResult Index()
         {
-            var model = blogRepository.GetAllBlogPosts();
-            
+            var model = blogRepository.GetAllBlogPosts().OrderByDescending(model => model.Id);
             return View(model);
         }
         [HttpGet]
@@ -41,7 +40,7 @@ namespace Blog.Controllers
         public IActionResult ShowPost(int? id)
         {
             var model = blogRepository.GetBlogPost(id??1);
-            model.Comments = blogRepository.GetCommentsOfBlogPost(model).ToList();
+            model.Comments = blogRepository.GetCommentsOfBlogPost(model);
             return View(model);
         }
     }

@@ -5,14 +5,14 @@
 }
 
 <div class="row">
-    <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3  mt-3 mb-2">
         @{
             int firstTime = 0;
 
         }
         @foreach (var blog in Model)
         {
-            <div id="@blog.Id" class="row bg-white @(firstTime == 0 ? "" : "border-top") p-3" @{firstTime = 1;}>
+            <div id="@blog.Id" class="row bg-white mb-4 @(firstTime == 0 ? "" : "border-top") p-3" @{firstTime = 1;}>
                 <div class="col-12 p-2">
                     <span class="text-primary small">@blog.Author</span> <i class=" ml-1 far  fa-star fa-xs text-muted"></i>
                 </div>
@@ -24,13 +24,13 @@
                         </a>
                     </h2>
                     <h3 class="text-muted"><small>@blog.SubTitle</small></h3>
-                    <p class="mt-4">@Html.Raw(blog.Introduction)</p>
+                    <p class="mt-4" style="font-size:18px">@Html.Raw(blog.Introduction)</p>
                     <p class="text-center font-weight-bolder text-muted" style="font-size:30px">. . .</p>
                 </div>
 
                 <div class="col-12">
                     <button class="btn btn-light"><i class="far fa-heart"></i> <span>@blog.Likes</span></button>
-                    <button class="btn btn-light"><i class="far fa-comment"></i> <span>@blog.Comments.Count()</span></button>
+                    <button class="btn btn-light"><i class="far fa-comment"></i> <span>@blog.Comments.Count</span></button>
 
                 </div>
             </div>
