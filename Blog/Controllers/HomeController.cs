@@ -21,6 +21,11 @@ namespace Blog.Controllers
             
             return View(model);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
 
         public IActionResult ShowPost(int? id)
         {

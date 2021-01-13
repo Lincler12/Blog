@@ -1,0 +1,41 @@
+﻿@model BlogPost
+
+
+<div class="row">
+    <div class="col-md-8 offset-md-2 col-12">
+        <div class="d-flex align-items-start">
+            <ul class="nav flex-column nav-pills border-right min-vh-100" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="article-tab" data-toggle="tab" href="#article" role="tab" aria-controls="article" aria-selected="true">Article</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false">Details</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link line" id="preview-tab" data-toggle="tab" href="#preview" role="tab" aria-controls="preview" aria-selected="false">Preview</a>
+                </li>
+            </ul>
+            <div class="tab-content pt-5 pb-3 w-100 mh-100" id="myTabContent">
+
+                <div class="row pl-2">
+                    <div class="col-12 col-sm-12 col-md-11 offset-md-1 col-xl-10 offset-xl-2">
+                        <div class="tab-pane fade show active h-100" id="article" role="tabpanel" aria-labelledby="article-tab">
+
+                                <textarea  id="mytextarea" class=" form-control h-100" rows="20"></textarea>
+
+
+                        </div>
+                        <div class="tab-pane fade display-none" id="details" role="tabpanel" aria-labelledby="details-tab">..faesf.</div>
+                        <div class="tab-pane fade display-none" id="preview" role="tabpanel" aria-labelledby="preview-tab">..aefsa.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @*Script is used to put display none on elements that are not selected*@
+    <script src="~/js/CreatePageScript.js"></script>
+
+}
