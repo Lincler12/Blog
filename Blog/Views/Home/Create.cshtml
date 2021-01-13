@@ -1,8 +1,8 @@
 ﻿@model BlogPost
 
 
-<div class="row">
-    <div class="col-md-8 offset-md-2 col-12">
+<div class="row bg-primary">
+    <div class="col-md-8 offset-md-2 col-12 bg-white">
         <div class="d-flex align-items-start">
             <ul class="nav flex-column nav-pills border-right min-vh-100" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -18,14 +18,31 @@
             <div class="tab-content pt-5 pb-3 w-100 mh-100" id="myTabContent">
 
                 <div class="row pl-2">
-                    <div class="col-12 col-sm-12 col-md-11 offset-md-1 col-xl-10 offset-xl-2">
+                    <div class="col-12 col-sm-12 col-md-11 offset-md-1 col-xl-9 ">
                         <div class="tab-pane fade show active h-100" id="article" role="tabpanel" aria-labelledby="article-tab">
-
-                                <textarea  id="mytextarea" class=" form-control h-100" rows="20"></textarea>
-
-
+                            <textarea id="mytextarea" class=" form-control h-100" rows="20"></textarea>
                         </div>
-                        <div class="tab-pane fade display-none" id="details" role="tabpanel" aria-labelledby="details-tab">..faesf.</div>
+                        <div class="tab-pane fade display-none" id="details" role="tabpanel" aria-labelledby="details-tab">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Author</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Post Title</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Post Subtitle</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Post Introduction</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
                         <div class="tab-pane fade display-none" id="preview" role="tabpanel" aria-labelledby="preview-tab">..aefsa.</div>
                     </div>
                 </div>
