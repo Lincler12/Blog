@@ -129,6 +129,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="TinyMCE" Version="5.6.2" />
   </ItemGroup>
 
 </Project>

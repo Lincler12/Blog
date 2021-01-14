@@ -12,7 +12,7 @@
         }
         @foreach (var blog in Model)
         {
-            <div id="@blog.Id" class="row bg-white mb-4 @(firstTime == 0 ? "" : "border-top") p-3" @{firstTime = 1;}>
+            <div id="@blog.Id" class="text-wrap text-break row bg-white mb-4 @(firstTime == 0 ? "" : "border-top") p-3" @{firstTime = 1;}>
                 <div class="col-12 p-2">
                     <span class="text-primary small">@blog.Author</span> <i class=" ml-1 far  fa-star fa-xs text-muted"></i>
                 </div>
@@ -24,7 +24,7 @@
                         </a>
                     </h2>
                     <h3 class="text-muted"><small>@blog.SubTitle</small></h3>
-                    <p class="mt-4" style="font-size:18px">@Html.Raw(blog.Introduction)</p>
+                    <div class="mt-4" style="font-size:18px !important;">@Html.Raw(blog.Introduction)</div>
                     <p class="text-center font-weight-bolder text-muted" style="font-size:30px">. . .</p>
                 </div>
 

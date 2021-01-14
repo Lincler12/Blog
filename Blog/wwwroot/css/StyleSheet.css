@@ -3,3 +3,22 @@
 .display-none{
     display:none;
 }
+
+.img-responsive{
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display:block;
+    object-fit:contain;
+    max-width: 100% !important;
+    max-height: 600px!important;
+    
+    
+}
+
+.img-wrapper::after {
+    font-size: 12px;
+    content: 'Click Image To View Full Size';
+    display: block;
+}
+
