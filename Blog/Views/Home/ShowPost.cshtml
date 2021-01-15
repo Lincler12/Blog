@@ -9,7 +9,12 @@
     <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 text-wrap text-break">
 
 
+
         <div id="@Model.Id" class="row bg-white p-3">
+            <div>
+                
+                <a asp-controller="home" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+            </div>
             <div class="col-12 p-2">
                 <span class="text-primary small">@Model.Author</span> <i class=" ml-1 far  fa-star fa-xs text-muted"></i>
             </div>

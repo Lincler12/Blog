@@ -23,7 +23,9 @@ namespace Blog.Models
 
         public Comment AddComment(Comment comment)
         {
-            throw new NotImplementedException();
+            appDbContext.Comments.Add(comment);
+            appDbContext.SaveChanges();
+            return comment;
         }
 
         public BlogPost Delete(int id)
@@ -59,7 +61,10 @@ namespace Blog.Models
 
         public BlogPost Update(BlogPost blogPost)
         {
-            throw new NotImplementedException();
+            var blogPostDb = appDbContext.BlogPosts.Attach(blogPost);
+            blogPostDb.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            appDbContext.SaveChanges();
+            return blogPost;
         }
 
         public Comment UpdateComment(Comment comment)
